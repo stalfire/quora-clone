@@ -1,0 +1,54 @@
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+
+	<form method="post" action="/new_question" id="newquestion">
+			Title:<input type="text" placeholder="Title" name="question[title]">
+			Content:<input type="text" placeholder="Content" name="question[content]">
+	    <input type="submit" value="Post Question">
+	</form>
+<div class="flip">THE LATEST QUESTION</div>
+<div class="panel" style="text-align: right">	
+	<div class="container">
+	<div class="table-responsive">          
+	  <table class="table" id="data_table">
+	    <thead>
+	      <tr>
+	      	<th>Title</th>
+	        <th>Content</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	       	<% @all_questions.each do |x| %>
+	  		<tr>
+	  			<td><%= x.title %></td>
+	 	   		<td><%= x.content %></td>
+	  		</tr>
+	  		<%end%>
+	    </tbody>
+	  </table>
+	</div>
+	</div>
+</div>
+<div class="flip2">QUESTION POST BY USER</div>
+<div class="panel2" style="text-align: right">
+	<div class="container">
+	<div class="table-responsive">          
+	  <table class="table" id="data_table">
+	    <thead>
+	      <tr>
+	      	<th>Title</th>
+	        <th>Content</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	       	<% @questions_posted.each do |x| %>
+	  		<tr>
+	  			<td><%= x.title %></td>
+	 	   		<td><%= x.content %></td>
+	  		</tr>
+	  		<%end%>
+	    </tbody>
+	  </table>
+	</div>
+	</div>
+</div>

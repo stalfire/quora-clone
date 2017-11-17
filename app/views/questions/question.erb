@@ -1,0 +1,36 @@
+<p>All question Page</p>
+<div class="container">
+<div class="table-responsive">          
+	  <table class="table" id="data_table">
+	    <thead>
+	      <tr>
+	      	<th>Title</th>
+	        <th>Content</th>
+	        <th>Answer</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	<% question_id = 1 %>
+	       	<% @all_questions.each do |x| %>
+	       	<% question_current_id = x.id %>
+	  		<tr>
+	  			<td><%= x.title %></td>
+	 	   		<td><%= x.content %></td>
+	 	   		<% @all_answers.each do |x| %>
+	 	   			<% if x.question_id == question_current_id %>
+	 	   				<td><%= x.content %></td>
+	 	   			<%end%>
+	 	   			
+	 	   		<%end%>
+	 	   		<td><form method="post" action="/new_answer" id="newanswer">
+					Answer:<input type="text" placeholder="Answer" name="answer[content]">
+					<input type="hidden" name="answer[question_id]" value="<%= question_id%>">
+	    			<input type="submit" value="Post Answer">
+					</form></td>
+	  		</tr>
+	  		<% question_id += 1 %>
+	  		<%end%>
+	    </tbody>
+	  </table>
+</div>
+</div>

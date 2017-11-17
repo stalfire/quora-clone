@@ -1,0 +1,26 @@
+<div>
+<h1 style="color: white">TESTING PAGE</h1>
+
+	<% question_id = 1 %>
+	<% @all_questions.each do |x| %>
+	<div>
+	<% question_current_id = x.id %>
+	  	<p style="color: white">Title: <%= x.title %></p>
+	 	<p style="color: white">Content: <%= x.content %></p>
+	 	<p style="color: white">Answer: </p>
+	  <% @all_answers.each do |x| %>
+	 	<% if x.question_id == question_current_id %>
+	 	   <p style="color: white"><%= x.content %></p>
+	 	<%end%>				
+	  <%end%> 
+	  	<div id="new_answer">
+	 	   <form method="post" action="/new_answer" id="newanswer">
+			Answer:<input type="text" placeholder="Answer" name="answer[content]">
+			<input type="hidden" name="answer[question_id]" value="<%= question_id%>">
+	    	<input type="submit" value="Post Answer">
+			</form>
+	  	<% question_id += 1 %> 
+	  	</div> 	
+	<div>  		
+	<%end%>
+</div>
