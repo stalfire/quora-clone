@@ -23,7 +23,8 @@ $('#newquestion').submit(function(e){
 			}		
 		})
 	});
-$('#newanswer').submit(function(e){
+$('.newanswer').submit(function(e){
+	targetDiv = $(this);
 		e.preventDefault();
 		$.ajax({
 			url: '/new_answer',
@@ -32,7 +33,7 @@ $('#newanswer').submit(function(e){
 			dataType: 'json',
 			success: function(data){
 				console.log(data);
-				$('#new_answer').append('\
+				targetDiv.prev().append('\
 					<p>' + data.content +'</td>\
 				');
 			}		

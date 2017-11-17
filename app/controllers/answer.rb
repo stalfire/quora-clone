@@ -1,7 +1,6 @@
 post '/new_answer' do
 	answer = Answer.new(params[:answer])
 	answer.user_id = session[:user_id]
-	# answer.question_id = session[:user_id]
 	if session[:user_id]
 		answer.save
 		answer.to_json

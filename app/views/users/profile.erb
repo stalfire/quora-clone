@@ -15,6 +15,7 @@
 	      <tr>
 	      	<th>Title</th>
 	        <th>Content</th>
+	        <th>Vote</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -22,6 +23,11 @@
 	  		<tr>
 	  			<td><%= x.title %></td>
 	 	   		<td><%= x.content %></td>
+	 	   		<% @votes.each do |t| %>
+	 	   			<% if t.question_id == x.id %>
+	 	   				<td><%= t.choice %></td>
+	 	   			<%end%>	
+	 	  		<%end%>
 	  		</tr>
 	  		<%end%>
 	    </tbody>
@@ -38,6 +44,7 @@
 	      <tr>
 	      	<th>Title</th>
 	        <th>Content</th>
+	        <th>Votes</th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -45,6 +52,11 @@
 	  		<tr>
 	  			<td><%= x.title %></td>
 	 	   		<td><%= x.content %></td>
+	 	   		<% @votes.each do |t| %>
+	 	   			<% if t.question_id == x.id %>
+	 	   				<td><%= t.choice %></td>
+	 	   			<%end%>	
+	 	  		<%end%>
 	  		</tr>
 	  		<%end%>
 	    </tbody>

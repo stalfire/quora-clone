@@ -27,6 +27,7 @@ end
 get '/users/:id' do
 	@all_questions = Question.all
 	@questions_posted = @all_questions.where(user_id:[session[:user_id]])
+	@votes = QuestionVote.all
 	id = params[:id]
 	@user = User.find(id)
 	if session[:user_id] == @user.id
